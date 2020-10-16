@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to 'Home', root_path %>
+      <%# if logged in, show link to log out page  %>
+      <% if @current_user.present? %>
+        <%= link_to "Log out of #{@current_user.email}", login_path, :method => 'delete' %>
+        <%# if logged out show links to create acc/log in%>
+      <% else %>
+        <%= link_to 'Create Account', new_user_path %>
+        <%= link_to 'Log In', login_path %>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>

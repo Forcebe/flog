@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  #homepage route
+  root :to => "pages#home"
+  #new user routes
+  resources :users, :only => [:new, :create]
+
+  #log in/log out routes
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
 end

@@ -1,0 +1,15 @@
+<h2>Log In</h2>
+
+<%# show invalid email/password error %>
+<%= flash[:error] %>
+
+<%# form helper unavailabe, form to log in %>
+<%= form_tag login_path do %>
+  <%= label_tag :email %>
+  <%= email_field_tag :email %>
+
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+
+  <%= submit_tag "Log In" %>
+<% end %>
