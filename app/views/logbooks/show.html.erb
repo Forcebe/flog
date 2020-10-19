@@ -1,5 +1,7 @@
 <h2><%= @logbook.name %></h2>
 
+<%= link_to "New Flight", new_logbook_flight_path(@logbook.id) %>
+
 <table>
   <!-- Display logbook format for each type -->
   <% if @logbook.aviation_type == 'General Aviation' %>

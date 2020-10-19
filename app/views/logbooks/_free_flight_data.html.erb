@@ -6,4 +6,6 @@
   <td><%= flight.notes %></td>
   <td><%= flight.flight_time%></td>
   <td><%= flight.distance %></td>
+  <td><%= link_to 'X', logbook_flight_path(@logbook.id, flight.id), :method  => 'delete' %></td>
+  <td><%= link_to 'Edit', edit_logbook_flight_path(@logbook.id, flight.id)  %> </td>
 </tr>

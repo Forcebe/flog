@@ -12,4 +12,6 @@
   <td><%= flight.flight_time if flight.multi && flight.command && !flight.night %></td>
   <td><%= flight.flight_time if flight.multi && flight.command && flight.night %></td>
   <td><%= flight.instrument_time %></td>
+  <td><%= link_to 'X', logbook_flight_path(@logbook.id, flight.id), :method  => 'delete' %></td>
+  <td><%= link_to 'Edit', edit_logbook_flight_path(@logbook.id, flight.id)  %> </td>
 </tr>

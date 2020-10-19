@@ -1,2 +1,11 @@
-<h1>Flights#new</h1>
-<p>Find me in app/views/flights/new.html.erb</p>
+<h2>Create a Flight</h2>
+
+<% if @logbook.aviation_type == 'General Aviation' %>
+  <%= render partial: "general_aviation_form" %>
+<% elsif @logbook.aviation_type == 'Gliding' %>
+  <%= render partial: "gliding_form" %>
+<% elsif @logbook.aviation_type == 'Free Flight' %>
+  <%= render partial: "free_flight_form" %>
+<% elsif @logbook.aviation_type == 'Skydiving' %>
+  <%= render partial: "skydiving_form" %>
+<% end %>

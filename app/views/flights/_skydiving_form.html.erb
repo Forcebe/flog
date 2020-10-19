@@ -1,0 +1,24 @@
+<%= form_for [@logbook, @flight] do |f| %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+
+  <%= f.label :serial %>
+  <%= f.date_field :serial %>
+
+  <%= f.label :aircraft, "Canopy" %>
+  <%= f.text_field :aircraft %>
+
+  <%= f.label :location  %>
+  <%= f.text_field :location %>
+
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+
+  <%= f.label :freefall %>
+  <%= f.number_field :freefall %>
+
+  <%= f.label :launch_altitude %>
+  <%= f.number_field :launch_altitude %>
+
+  <%= f.submit %>
+<% end %>

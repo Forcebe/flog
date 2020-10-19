@@ -1,0 +1,30 @@
+<%= form_for [@logbook, @flight] do |f| %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+
+  <%= f.label :aircraft %>
+  <%= f.text_field :aircraft %>
+
+  <%= f.label :registration %>
+  <%= f.text_field :registration %>
+
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+
+  <%= f.label :multi, "Flown in a multi-engine airplane" %>
+  <%= f.check_box :multi %>
+
+  <%= f.label :command, "Flown as Pilot In Command" %>
+  <%= f.check_box :command %>
+
+  <%= f.label :night, "Flown at night" %>
+  <%= f.check_box :multi %>
+
+  <%= f.label :flight_time %>
+  <%= f.number_field :flight_time, step: :any %>
+
+  <%= f.label :instrument_time %>
+  <%= f.number_field :instrument_time, step: :any%>
+
+  <%= f.submit %>
+<% end %>

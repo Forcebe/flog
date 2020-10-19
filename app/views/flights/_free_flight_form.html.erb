@@ -1,0 +1,21 @@
+<%= form_for [@logbook, @flight] do |f| %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+
+  <%= f.label :aircraft, "Wing/Paramotor/Glider" %>
+  <%= f.text_field :aircraft %>
+
+  <%= f.label :location  %>
+  <%= f.text_field :location %>
+
+  <%= f.label :launch_type %>
+  <%= f.text_field :launch_type %>
+
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+
+  <%= f.label :flight_time %>
+  <%= f.number_field :flight_time, step: :any %>
+
+  <%= f.submit %>
+<% end %>

@@ -6,4 +6,6 @@
   <td><%= flight.notes %></td>
   <td><%= flight.freefall%>s</td>
   <td><%= flight.launch_altitude %>ft</td>
+  <td><%= link_to 'X', logbook_flight_path(@logbook.id, flight.id), :method  => 'delete' %></td>
+  <td><%= link_to 'Edit', edit_logbook_flight_path(@logbook.id, flight.id)  %> </td>
 </tr>
