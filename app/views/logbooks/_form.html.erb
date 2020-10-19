@@ -4,7 +4,7 @@
 
    <%# TODO: Decide types, make a select box. restrict in the model %>
   <%= f.label :aviation_type %>
-  <%= f.text_field :aviation_type %>
+  <%= f.select:aviation_type, options_for_select(['General Aviation', 'Gliding', 'Free Flight', 'Skydiving'], @logbook.aviation_type) %>
 
   <%= f.submit %>
 <% end  %>
