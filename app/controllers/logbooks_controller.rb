@@ -8,6 +8,7 @@ class LogbooksController < ApplicationController
   def show
     @logbook =Logbook.find params[:id]
     @flights = @logbook.flights
+    redirect_to logbooks_path if @logbook.user_id != @current_user.id
   end
 
   def new
