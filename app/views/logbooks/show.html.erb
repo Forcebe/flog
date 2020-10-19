@@ -1,0 +1,14 @@
+<h2><%= @logbook.name %></h2>
+
+<table>
+  <!-- Display logbook format for each type -->
+  <% if @logbook.aviation_type == 'General Aviation' %>
+    <%= render partial: "general_aviation" %>
+  <% elsif @logbook.aviation_type == 'Gliding' %>
+    <%= render partial: "gliding" %>
+  <% elsif @logbook.aviation_type == 'Free Flight' %>
+    <%= render partial: "free_flight" %>
+  <% elsif @logbook.aviation_type == 'Skydiving' %>
+    <%= render partial: "skydiving" %>
+  <% end %>
+</table>

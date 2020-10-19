@@ -13,8 +13,8 @@ class UsersController < ApplicationController
     if @user.save
       # log in
       session[:user_id] = @user.idea
-      # go home. TODO: go to logbooks index
-      redirect_to root_path
+      # go to logbooks. 
+      redirect_to logbooks_path
     #if the user won't save
     else
       #back to create page with errors displayed

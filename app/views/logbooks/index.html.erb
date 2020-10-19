@@ -1,0 +1,11 @@
+<h2><%= "#{@current_user.email}'s Logbooks'" %></h2>
+
+<% @logbooks.each do |logbook| %>
+  <div class="logbook_box">
+    <p><%= link_to "#{logbook.name}", logbook_path(logbook) %></p>
+    <p><%= link_to 'Edit Logbook', edit_logbook_path(logbook)  %></p>
+    <p><%= link_to 'Delete Logbook', logbook_path(logbook), :method => 'delete' %></p>
+  </div>
+<% end %>
+
+<%= link_to 'New Logbook', new_logbook_path %>

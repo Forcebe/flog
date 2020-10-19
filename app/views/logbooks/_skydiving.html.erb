@@ -1,0 +1,14 @@
+<tr>
+  <th>Date</th>
+  <th>Serial</th>
+  <th>Equipment</th>
+  <th>Location</th>
+  <th>Notes</th>
+  <th>Freefall Duration</th>
+  <th>Launch Altitude</th>
+</tr>
+<%=
+render partial: "skydiving_data",
+collection: @logbook.flights,
+:as => :flight
+%>

@@ -11,8 +11,8 @@ class SessionController < ApplicationController
     if user.present? && user.authenticate(params[:password])
       # log in
       session[:user_id] = user.id
-      # back to homepage. # TODO: redirect to Logbooks index
-      redirect_to root_path
+      # back to logbooks index.
+      redirect_to logbooks_path
     # If username/password are invalid
     else
       # FLASH! ah-AAAH! (store error for use on next page only)

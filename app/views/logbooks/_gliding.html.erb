@@ -1,0 +1,18 @@
+<tr>
+  <th rowspan="2">Date</th>
+  <th colspan="2">Aircraft</th>
+  <th rowspan="2">Location</th>
+  <th rowspan="2">Launch Type</th>
+  <th rowspan="2">Notes</th>
+  <th rowspan="2">Dual Time</th>
+  <th rowspan="2">Solo Time</th>
+</tr>
+<tr>
+  <td>Type</td>
+  <td>Registration</td>
+</tr>
+<%=
+render partial: "gliding_data",
+collection: @logbook.flights,
+:as => :flight
+%>

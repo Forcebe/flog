@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   # Is someone logged in?
   def check_for_login
     #if not, back home with you!
-    redirect_to root path unless @current_user.present?
+    redirect_to root_path unless @current_user.present?
   end
 end

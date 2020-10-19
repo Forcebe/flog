@@ -1,0 +1,10 @@
+<tr>
+  <td><%= flight.date %></td>
+  <td><%= flight.aircraft %></td>
+  <td><%= flight.registration %></td>
+  <td><%= flight.location %></td>
+  <td><%= flight.launch_type %></td>
+  <td><%= flight.notes %></td>
+  <td><%= flight.flight_time if !flight.command %></td>
+  <td><%= flight.flight_time if flight.command %></td>
+</tr>

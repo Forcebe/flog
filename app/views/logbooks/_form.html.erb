@@ -1,0 +1,10 @@
+<%= form_for @logbook do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+   <%# TODO: Decide types, make a select box. restrict in the model %>
+  <%= f.label :aviation_type %>
+  <%= f.text_field :aviation_type %>
+
+  <%= f.submit %>
+<% end  %>

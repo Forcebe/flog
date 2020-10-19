@@ -1,0 +1,14 @@
+<tr>
+  <th>Date</th>
+  <th>Equipment</th>
+  <th>Location</th>
+  <th>Launch Type</th>
+  <th>Notes</th>''
+  <th>Duration</th>
+  <th>Distance</th>
+</tr>
+<%=
+render partial: "free_flight_data",
+collection: @logbook.flights,
+:as => :flight
+%>

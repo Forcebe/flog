@@ -1,0 +1,32 @@
+<tr>
+  <th rowspan="3">Date</th>
+  <th colspan="2" rowspan="2" >Aircraft</th>
+  <th rowspan="3">Notes</th>
+  <th colspan= "4">Single Engine</th>
+  <th colspan= "4">Multi Engine</th>
+  <th colspan= "2" rowspan="3">Instrument</th>
+</tr>
+<tr>
+  <td colspan="2">Dual</td>
+  <td colspan="2">Command</td>
+  <td colspan="2">Dual</td>
+  <td colspan="2">Command</td>
+</tr>
+<tr>
+  <td>Type</td>
+  <td>Registration</td>
+  <td>Day</td>
+  <td>Night</td>
+  <td>Day</td>
+  <td>Night</td>
+  <td>Day</td>
+  <td>Night</td>
+  <td>Day</td>
+  <td>Night</td>
+</tr>
+<!-- Fill data by flight -->
+<%=
+render partial: "general_aviation_data",
+collection: @logbook.flights,
+:as => :flight
+%>

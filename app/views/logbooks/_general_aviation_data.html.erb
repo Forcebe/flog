@@ -1,0 +1,15 @@
+<tr>
+  <td><%= flight.date %></td>
+  <td><%= flight.aircraft %></td>
+  <td><%= flight.registration %></td>
+  <td><%= flight.notes %></td>
+  <td><%= flight.flight_time if !flight.multi && !flight.command && !flight.night %></td>
+  <td><%= flight.flight_time if !flight.multi && !flight.command && flight.night %></td>
+  <td><%= flight.flight_time if !flight.multi && flight.command && !flight.night %></td>
+  <td><%= flight.flight_time if !flight.multi && flight.command && flight.night %></td>
+  <td><%= flight.flight_time if flight.multi && !flight.command && !flight.night %></td>
+  <td><%= flight.flight_time if flight.multi && !flight.command && flight.night %></td>
+  <td><%= flight.flight_time if flight.multi && flight.command && !flight.night %></td>
+  <td><%= flight.flight_time if flight.multi && flight.command && flight.night %></td>
+  <td><%= flight.instrument_time %></td>
+</tr>
