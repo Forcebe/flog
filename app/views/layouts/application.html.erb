@@ -8,22 +8,72 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
   <body>
-    <nav>
-
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <%# if logged in, show link to log out page  %>
       <% if @current_user.present? %>
-      <%= link_to 'My Logbooks', logbooks_path %>
-        <%= link_to "Log out of #{@current_user.email}", login_path, :method => 'delete' %>
+      <%= link_to image_tag( "f-log_logo.png", :height => 30, :alt => '', ), logbooks_path %>
+      <!-- Bootstrap collapse for smaller screens -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <!-- Navbar links -->
+          <ul class="navbar-nav">
+            <li class= <%= 'active' if current_page?(logbooks_path) %>>
+              <%= link_to 'My Logbooks', logbooks_path, :class => "nav-item nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Log out of #{@current_user.email}", login_path, :method => 'delete', :class => "nav-item nav-link" %>
+            </li>
+
+          </ul>
+        </div>
         <%# if logged out show links to create acc/log in%>
       <% else %>
-        <%= link_to 'Home', root_path %>
-        <%= link_to 'Create Account', new_user_path %>
-        <%= link_to 'Log In', login_path %>
+      <%= link_to image_tag( "f-log_logo.png",  :height => 30, :alt => '' ), root_path %>
+      <!-- Bootstrap collapse for smaller screens -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <!-- Navbar links -->
+          <ul class="navbar-nav">
+            <li class=<%= "active" if current_page?(new_user_path)  %>>
+              <%= link_to 'Create Account', new_user_path, :class => "nav-item nav-link" %>
+            </li>
+            <li  class=<%= "active" if current_page?(login_path) %> >
+              <%= link_to 'Log In', login_path, :class => "nav-item nav-link" %>
+            </li>
+          </ul>
+        </div>
       <% end %>
     </nav>
-    <%= yield %>
+
+    <main role="<main></main>" class="container">
+      <%= yield %>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="text-muted">
+          <p>
+          Nick Mather for General Assembly Australia SEI #38, October 2020.
+          <a href="https://twitter.com/Forcebe_" target="_blank" class="text-secondary">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/nicholas-mather-5631091b4/" target="_blank" class="text-secondary">
+            <i class="fa fa-linkedin"></i>
+          </a>
+          <a href="https://medium.com/@nickmather12" target="_blank" class="text-secondary">
+            <i class="fa fa-medium"></i>
+          </a>
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
