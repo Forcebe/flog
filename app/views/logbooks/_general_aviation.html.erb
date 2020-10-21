@@ -35,3 +35,32 @@
   :as => :flight
   %>
 </tbody>
+<thead class="thead-light">
+  <th colspan="4" class="align-middle"> Totals</th>
+  <th class="align-middle">
+    <%= @flights.where(:multi => false, :command => false, :night => false).sum(:flight_time).round(1) %>
+  </th>
+  <th class="align-middle">
+    <%=  @flights.where(:multi => false, :command => false, :night => true).sum(:flight_time).round(1) %>
+  </th>
+  <th class="align-middle">
+    <%=  @flights.where(:multi => false, :command => true, :night => false).sum(:flight_time).round(1) %>
+  </th>
+  <th class="align-middle">
+    <%=  @flights.where(:multi => false, :command => true, :night => true).sum(:flight_time).round(1) %>
+  </th>
+  <th class="align-middle">
+    <%=  @flights.where(:multi => true, :command => false, :night => false).sum(:flight_time).round(1) %>
+  </th>
+  <th class="align-middle">
+    <%=  @flights.where(:multi => true, :command => false, :night => true).sum(:flight_time).round(1) %>
+  </th>
+  <th class="align-middle">
+    <%=  @flights.where(:multi => true, :command => true, :night => false).sum(:flight_time).round(1) %>
+  </th>
+  <th class="align-middle">
+    <%=  @flights.where(:multi => true, :command => true, :night => true).sum(:flight_time).round(1) %>
+  </th>
+  <th class="align-middle"><%= "#{@flights.sum(:instrument_time).round(1)}" %></th>
+  <th class="align-middle">Hours</th>
+</thead>

@@ -21,3 +21,13 @@
   :as => :flight
   %>
 </tbody>
+<thead class="thead-light">
+  <th colspan="6" class="align-middle"> Totals</th>
+  <th class="align-middle">
+    <%= @flights.where(:command => false).sum(:flight_time).round(1) %>
+  </th>
+  <th class="align-middle">
+    <%=  @flights.where(:command => true).sum(:flight_time).round(1) %>
+  </th>
+  <th class="align-middle">Hours</th>
+</thead>

@@ -17,3 +17,13 @@
   :as => :flight
   %>
 </tbody>
+<thead class="thead-light">
+  <th colspan="5" class="align-middle"> Totals</th>
+  <th class="align-middle">
+    <%= "#{@flights.sum(:flight_time).round(1)} hrs" %>
+  </th>
+  <th class="align-middle">
+    <%=  "#{@flights.sum(:distance).round(1)} Km" %>
+  </th>
+  <th class="align-middle">Hours</th>
+</thead>

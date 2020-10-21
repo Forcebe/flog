@@ -40,6 +40,25 @@ f14=Flight.create :date => '2020-09-13', :aircraft => 'Alpha 6', :flight_time =>
 
 f15=Flight.create :date => '2020-10-03', :aircraft => 'Sabre 2',  :notes => "Work on landing technique", :location => 'Sydney Skydivers', :serial => 1, :freefall => 60, :launch_altitude => 14000
 f16=Flight.create :date => '2020-10-04', :aircraft => 'Sabre 2',  :notes => "Better landing", :location => 'Sydney Skydivers', :serial => 2, :freefall => 60, :launch_altitude => 14000
+
+
+124.times do
+  vfr_time = Faker::Number.decimal(l_digits: 1, r_digits: 1 ).to_f
+  ifr_time = Faker::Number.decimal(l_digits: 1, r_digits: 1 ).to_f
+  f = Flight.create(
+    :date => Faker::Date.between(from: '2019-06-20', to: '2020-10-21'),
+    :aircraft => Faker::Space.star,
+    :registration => "#{Faker::Alphanumeric.alpha(number: 2).upcase}-#{Faker::Alphanumeric.alpha(number: 3).upcase}",
+    :night => Faker::Boolean.boolean(true_ratio: 0.3),
+    :multi => Faker::Boolean.boolean(true_ratio: 0.4),
+    :command => Faker::Boolean.boolean(true_ratio: 0.8),
+    :flight_time => vfr_time,
+    :notes => Faker::Quote.most_interesting_man_in_the_world,
+    :instrument_time => (ifr_time if ifr_time <= vfr_time  && rand() < 0.3)
+  )
+  l5.flights << f
+end
+
 puts "#{ Flight.count } Flights"
 
 puts "Users and Logbooks"
