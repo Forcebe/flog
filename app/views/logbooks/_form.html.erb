@@ -1,19 +1,23 @@
-
 <% if @logbook.errors.any? %>
-  <ul>
-    <% @logbook.errors.full_messages.each do |msg|  %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+  <div class="alert alert-warning">
+    <ul>
+      <% @logbook.errors.full_messages.each do |msg|  %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
 <%= form_for @logbook do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "form-control" %>
+  </div>
 
-   <%# TODO: Decide types, make a select box. restrict in the model %>
-  <%= f.label :aviation_type %>
-  <%= f.select:aviation_type, options_for_select(['General Aviation', 'Gliding', 'Free Flight', 'Skydiving'], @logbook.aviation_type) %>
+  <div class="form-group">
+    <%= f.label :aviation_type %>
+    <%= f.select:aviation_type, options_for_select(['General Aviation', 'Gliding', 'Free Flight', 'Skydiving'], @logbook.aviation_type), {}, {:class => "form-control"} %>
+  </div>
 
-  <%= f.submit %>
+  <%= f.submit :class => "btn btn-primary" %>
 <% end  %>

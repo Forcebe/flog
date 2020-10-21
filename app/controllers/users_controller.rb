@@ -12,8 +12,8 @@ class UsersController < ApplicationController
     # save the user. If it works...
     if @user.save
       # log in
-      session[:user_id] = @user.idea
-      # go to logbooks. 
+      session[:user_id] = @user.id
+      # go to logbooks.
       redirect_to logbooks_path
     #if the user won't save
     else

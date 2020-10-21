@@ -1,19 +1,23 @@
-<tr>
-  <th rowspan="2">Date</th>
-  <th colspan="2">Aircraft</th>
-  <th rowspan="2">Location</th>
-  <th rowspan="2">Launch Type</th>
-  <th rowspan="2">Notes</th>
-  <th rowspan="2">Dual Time</th>
-  <th rowspan="2">Solo Time</th>
-
-</tr>
-<tr>
-  <td>Type</td>
-  <td>Registration</td>
-</tr>
-<%=
-render partial: "gliding_data",
-collection: @logbook.flights,
-:as => :flight
-%>
+<thead class="thead-light">
+  <tr>
+    <th rowspan="2" class="align-middle">Date</th>
+    <th colspan="2" class="align-middle">Aircraft</th>
+    <th rowspan="2" class="align-middle">Location</th>
+    <th rowspan="2" class="align-middle">Launch Type</th>
+    <th rowspan="2" class="align-middle">Notes</th>
+    <th rowspan="2" class="align-middle">Dual Time</th>
+    <th rowspan="2" class="align-middle">Solo Time</th>
+    <th rowspan="2" class="align-middle">Settings</th>
+  </tr>
+  <tr>
+    <th><small>Type</small></th>
+    <th><small>Registration</small></th>
+  </tr>
+</thead>
+<tbody>
+  <%=
+  render partial: "gliding_data",
+  collection: @logbook.flights,
+  :as => :flight
+  %>
+</tbody>

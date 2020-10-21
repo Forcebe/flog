@@ -1,32 +1,37 @@
-<tr>
-  <th rowspan="3">Date</th>
-  <th colspan="2" rowspan="2" >Aircraft</th>
-  <th rowspan="3">Notes</th>
-  <th colspan= "4">Single Engine</th>
-  <th colspan= "4">Multi Engine</th>
-  <th rowspan="3">Instrument</th>
-</tr>
-<tr>
-  <td colspan="2">Dual</td>
-  <td colspan="2">Command</td>
-  <td colspan="2">Dual</td>
-  <td colspan="2">Command</td>
-</tr>
-<tr>
-  <td>Type</td>
-  <td>Registration</td>
-  <td>Day</td>
-  <td>Night</td>
-  <td>Day</td>
-  <td>Night</td>
-  <td>Day</td>
-  <td>Night</td>
-  <td>Day</td>
-  <td>Night</td>
-</tr>
+<thead class="thead-light">
+  <tr>
+    <th rowspan="3" class="align-middle">Date</th>
+    <th colspan="2" class="align-middle">Aircraft</th>
+    <th rowspan="3" class="align-middle">Notes</th>
+    <th colspan="4" class="align-middle">Single Engine</th>
+    <th colspan="4" class="align-middle">Multi Engine</th>
+    <th rowspan="3" class="align-middle">Instrument</th>
+    <th rowspan="3" class="align-middle">Settings</th>
+  </tr>
+  <tr>
+    <th rowspan="2" class="align-middle"><small>Type</small></th>
+    <th rowspan="2" class="align-middle"><small>Registration</small></th>
+    <th colspan="2" class="align-middle"><small>Dual</small></th>
+    <th colspan="2" class="align-middle"><small>Command</small></th>
+    <th colspan="2" class="align-middle"><small>Dual</small></th>
+    <th colspan="2" class="align-middle"><small>Command</small></th>
+  </tr>
+  <tr>
+    <th><small>Day</small></th>
+    <th><small>Night</small></th>
+    <th><small>Day</small></th>
+    <th><small>Night</small></th>
+    <th><small>Day</small></th>
+    <th><small>Night</small></th>
+    <th><small>Day</small></th>
+    <th><small>Night</small></th>
+  </tr>
+</thead>
 <!-- Fill data by flight -->
-<%=
-render partial: "general_aviation_data",
-collection: @logbook.flights,
-:as => :flight
-%>
+<tbody>
+  <%=
+  render partial: "general_aviation_data",
+  collection: @logbook.flights,
+  :as => :flight
+  %>
+</tbody>

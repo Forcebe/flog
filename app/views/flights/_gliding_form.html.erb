@@ -1,27 +1,45 @@
 <%= form_for [@logbook, @flight] do |f| %>
-  <%= f.label :date %>
-  <%= f.date_field :date %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :date %>
+    <%= f.date_field :date, :class => "form-control", :required => true %>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.label :aircraft %>
+    <%= f.text_field :aircraft, :class => "form-control" %>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.label :registration %>
+    <%= f.text_field :registration, :class => "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :location  %>
+    <%= f.text_field :location, :class => "form-control" %>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.label :launch_type %>
+    <%= f.text_field :launch_type, :class => "form-control" %>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.label :flight_time %>
+    <%= f.number_field :flight_time, step: :any, :class => "form-control", :required => true %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-12">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, :class => "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group"></div>
+</div>
+<div class="form-group form-check">
+  <%= f.check_box :command, :class => "form-check-input", :id => "pic"  %>
+  <%= f.label :command, "Flown as Pilot In Command", :class => "form-check-label", :for => "pic" %>
+</div>
 
-  <%= f.label :aircraft %>
-  <%= f.text_field :aircraft %>
-
-  <%= f.label :registration %>
-  <%= f.text_field :registration %>
-
-  <%= f.label :location  %>
-  <%= f.text_field :location %>
-
-  <%= f.label :launch_type %>
-  <%= f.text_field :launch_type %>
-
-  <%= f.label :notes %>
-  <%= f.text_area :notes %>
-
-  <%= f.label :command, "Flown as Pilot In Command" %>
-  <%= f.check_box :command %>
-
-  <%= f.label :flight_time %>
-  <%= f.number_field :flight_time, step: :any %>
-
-  <%= f.submit %>
+  <%= f.submit :class => "btn btn-primary" %>
 <% end %>

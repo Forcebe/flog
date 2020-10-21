@@ -1,11 +1,30 @@
-<h2><%= "#{@current_user.email}'s Logbooks" %></h2>
-
-<% @logbooks.each do |logbook| %>
-  <div class="logbook_box">
-    <p><%= link_to "#{logbook.name}", logbook_path(logbook) %></p>
-    <p><%= link_to 'Edit Logbook', edit_logbook_path(logbook)  %></p>
-    <p><%= link_to 'Delete Logbook', logbook_path(logbook), :method => 'delete' %></p>
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center">
+    <div><h2><%= "#{@current_user.email}'s Logbooks" %></h2></div>
+    <div><%= button_to 'New', new_logbook_path, :method => 'get',  :class => "btn btn-primary btn-sm" %></div>
   </div>
-<% end %>
 
-<%= link_to 'New Logbook', new_logbook_path %>
+  <div class="row">
+    <% @logbooks.each do |logbook| %>
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title"><%= "#{logbook.name}" %></h3>
+          <h4 class="card-subtitle mb-2 text-muted"><%= "#{logbook.aviation_type}" %></h4>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <%= button_to 'View', logbook_path(logbook), :method => 'get', :class => "btn btn-sm btn-outline-secondary"   %>
+              <%= button_to 'Edit', edit_logbook_path(logbook), :method => 'get', :class => "btn btn-sm btn-outline-secondary"   %>
+              <%= button_to 'Delete', logbook_path(logbook), :method => 'delete', :class => "btn btn-sm btn-outline-secondary", :data => { :confirm => "Are you sure you want to delete #{logbook.name}?"} %>
+            </div>
+            <div>
+              <small class="text-muted"><%= "#{logbook.flights.size} flights" %></small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

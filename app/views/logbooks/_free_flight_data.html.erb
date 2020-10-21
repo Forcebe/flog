@@ -6,6 +6,13 @@
   <td><%= flight.notes %></td>
   <td><%= flight.flight_time%></td>
   <td><%= flight.distance %></td>
-  <td><%= link_to 'X', logbook_flight_path(@logbook.id, flight.id), :method  => 'delete' %></td>
-  <td><%= link_to 'Edit', edit_logbook_flight_path(@logbook.id, flight.id)  %> </td>
+  <td>
+    <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ...
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <%= link_to 'Delete', logbook_flight_path(@logbook.id, flight.id), :method  => 'delete', :class => "dropdown-item" %>
+    <%= link_to 'Edit', edit_logbook_flight_path(@logbook.id, flight.id), :class => "dropdown-item"  %>
+  </div>
+  </td>
 </tr>

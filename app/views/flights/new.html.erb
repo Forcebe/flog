@@ -1,11 +1,13 @@
-<h2>Create a Flight</h2>
+<div class="container">
+  <h2>Create a Flight</h2>
 
-<% if @logbook.aviation_type == 'General Aviation' %>
-  <%= render partial: "general_aviation_form" %>
-<% elsif @logbook.aviation_type == 'Gliding' %>
-  <%= render partial: "gliding_form" %>
-<% elsif @logbook.aviation_type == 'Free Flight' %>
-  <%= render partial: "free_flight_form" %>
-<% elsif @logbook.aviation_type == 'Skydiving' %>
-  <%= render partial: "skydiving_form" %>
-<% end %>
+  <% if @logbook.aviation_type == 'General Aviation' %>
+    <%= render partial: "general_aviation_form" %>
+  <% elsif @logbook.aviation_type == 'Gliding' %>
+    <%= render partial: "gliding_form" %>
+  <% elsif @logbook.aviation_type == 'Free Flight' %>
+    <%= render partial: "free_flight_form" %>
+  <% elsif @logbook.aviation_type == 'Skydiving' %>
+    <%= render partial: "skydiving_form" %>
+  <% end %>
+</div>

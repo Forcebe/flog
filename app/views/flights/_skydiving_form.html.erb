@@ -1,24 +1,38 @@
 <%= form_for [@logbook, @flight] do |f| %>
-  <%= f.label :date %>
-  <%= f.date_field :date %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :serial %>
+      <%= f.number_field :serial, :class => "form-control", :required => true %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :date %>
+      <%= f.date_field :date, :class => "form-control", :required => true %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :aircraft, "Canopy" %>
+      <%= f.text_field :aircraft, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :location  %>
+      <%= f.text_field :location, :class => "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :freefall %>
+      <%= f.number_field :freefall, :class => "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :launch_altitude %>
+      <%= f.number_field :launch_altitude, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-12">
+      <%= f.label :notes %>
+      <%= f.text_area :notes, :class => "form-control" %>
+    </div>
+  </div>
 
-  <%= f.label :serial %>
-  <%= f.date_field :serial %>
-
-  <%= f.label :aircraft, "Canopy" %>
-  <%= f.text_field :aircraft %>
-
-  <%= f.label :location  %>
-  <%= f.text_field :location %>
-
-  <%= f.label :notes %>
-  <%= f.text_area :notes %>
-
-  <%= f.label :freefall %>
-  <%= f.number_field :freefall %>
-
-  <%= f.label :launch_altitude %>
-  <%= f.number_field :launch_altitude %>
-
-  <%= f.submit %>
+  <%= f.submit :class => "btn btn-primary" %>
 <% end %>

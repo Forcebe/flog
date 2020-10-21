@@ -1,15 +1,26 @@
-<h2>Log In</h2>
+<!-- show invalid email/password error (now with bootstrap!) -->
 
-<%# show invalid email/password error %>
-<%= flash[:error] %>
+
 
 <%# form helper unavailabe, form to log in %>
-<%= form_tag login_path do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
+<div class="container">
+  <% if flash[:error].present? %>
+  <div class="alert alert-warning" role="alert">
+    <%= flash[:error] %>
+  <% end %>
+  </div>
+  
+  <%= form_tag login_path do %>
+    <div class="form-group">
+      <%= label_tag :email %>
+      <%= email_field_tag :email, nil, :class => "form-control" %>
+    </div>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+    <div class="form-group">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, nil, :class => "form-control" %>
+    </div>
 
-  <%= submit_tag "Log In" %>
-<% end %>
+    <%= submit_tag "Log In", :class => "btn btn-primary" %>
+  <% end %>
+</div>
