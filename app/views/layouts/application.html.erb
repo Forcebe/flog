@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5986bf02eb.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -27,10 +27,21 @@
               <li class= <%= 'active' if current_page?(logbooks_path) %>>
                 <%= link_to 'My Logbooks', logbooks_path, :class => "nav-item nav-link" %>
               </li>
-              <li class="nav-item">
-                <%= link_to "Log out of #{@current_user.email}", login_path, :method => 'delete', :class => "nav-item nav-link" %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Statistics
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "User Statistics", user_by_month_path(@current_user), :class => "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                  <% @current_user.logbooks.each do |logbook| %>
+                    <%= link_to "#{logbook.name} statistics", logbook_by_month_path(logbook), :class => "dropdown-item" %>
+                  <% end %>
+                </div>
               </li>
-
+              <li class="nav-item">
+                <%= link_to "Log out of #{@current_user.first_name} #{@current_user.last_name}", login_path, :method => 'delete', :class => "nav-item nav-link" %>
+              </li>
             </ul>
           </div>
           <%# if logged out show links to create acc/log in%>
@@ -56,9 +67,9 @@
     </header>
 
 
-    <main role="main" class="container">
+
       <%= yield %>
-    </main>
+
 
     <footer class="footer">
       <div class="container">

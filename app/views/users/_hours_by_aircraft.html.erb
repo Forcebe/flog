@@ -1,0 +1,28 @@
+<%= user_hours_by_aircraft %>
+<hr class="mb-4">
+<div class="statistics">
+  <div class="row">
+    <div class="col-md-3">
+      <h4>Aircraft Statistics</h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-plane-departure"></i>   &nbsp; Most Flights</h6>
+      </div>
+      <h4 class="text-center"><%= @current_user.most_flown_aircraft.first %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-stopwatch"></i> &nbsp; Most Flight Time</h6>
+      </div>
+      <h4 class="text-center"><%= @current_user.most_hours_aircraft.first  %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-hourglass-half"></i> &nbsp; Time in <%= @current_user.most_flown_aircraft.first %></h6>
+      </div>
+      <h4 class="text-center"><%= "#{@current_user.most_hours_aircraft[1].round(1)} hours" %></h4>
+    </div>
+  </div>
+</div>
+<hr class="mb-4">

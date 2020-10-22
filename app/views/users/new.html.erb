@@ -1,31 +1,55 @@
 <div class="container">
-  <h2>Create an Account</h2>
-
-  <%# create list of signup errors if present %>
-  <% if @user.errors.any? %>
-    <ul class="alert alert-warning" role="alert">
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <%# create account form %>
   <%= form_for @user do |f| %>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, :class => "form-control" %>
+  <div class="row justify-content-center">
+    <div class="col-md-3 text-center ">
+        <%= image_tag( "f-log_logo.png", :class => "mb-4", :alt => '', :width => "120",  ) %>
+        <h2 class="h3 mb-3 font-weight-normal">Create an Account</h2>
+        <% if @user.errors.any? %>
+          <ul class="alert alert-warning" role="alert">
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, :class => "form-control" %>
+    <div class="row justify-content-center">
+      <div class="col-md-4 text-center form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, :class => "form-control" %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, :class => "form-control" %>
+    <div class="row justify-content-center">
+      <div class="col-md-2 text-center form-group">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, :class => "form-control" %>
+
+      </div>
+      <div class="col-md-2 text-center form-group">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4 text-center form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4 text-center form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, :class => "form-control" %>
+      </div>
     </div>
 
-    <%= f.submit "Create", :class => "btn btn-primary"  %>
+    <div class="row justify-content-center">
+      <div class="col-md-4 text-center">
+        <%= f.submit "Create", :class => "btn btn-lg btn-primary btn-block"  %>
+      </div>
+    </div>
+
+
 
   <% end %>
 </div>

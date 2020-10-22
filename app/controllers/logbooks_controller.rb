@@ -41,6 +41,16 @@ class LogbooksController < ApplicationController
     redirect_to logbooks_path
   end
 
+  def by_month
+    @logbook =Logbook.find params[:id]
+    @flights = @logbook.flights
+  end
+
+  def by_aircraft
+    @logbook =Logbook.find params[:id]
+    @flights = @logbook.flights
+  end
+
   private
   def logbook_params
     params.require(:logbook).permit(:name, :aviation_type, :id)

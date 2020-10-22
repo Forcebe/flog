@@ -1,26 +1,34 @@
-<!-- show invalid email/password error (now with bootstrap!) -->
-
-
-
 <%# form helper unavailabe, form to log in %>
+
 <div class="container">
-  <% if flash[:error].present? %>
-  <div class="alert alert-warning" role="alert">
-    <%= flash[:error] %>
-  <% end %>
-  </div>
-  
   <%= form_tag login_path do %>
-    <div class="form-group">
+  <div class="row justify-content-center">
+    <div class="col-md-3 text-center ">
+        <%= image_tag( "f-log_logo.png", :class => "mb-4", :alt => '', :width => "120",  ) %>
+        <h2 class="h3 mb-3 font-weight-normal">Login</h2>
+        <% if flash[:error].present? %>
+        <div class="alert alert-warning" role="alert">
+          <%= flash[:error] %>
+        <% end %>
+        </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3 text-center form-group">
       <%= label_tag :email %>
       <%= email_field_tag :email, nil, :class => "form-control" %>
     </div>
-
-    <div class="form-group">
-      <%= label_tag :password %>
-      <%= password_field_tag :password, nil, :class => "form-control" %>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3 text-center form-group">
+        <%= label_tag :password %>
+        <%= password_field_tag :password, nil, :class => "form-control" %>
     </div>
-
-    <%= submit_tag "Log In", :class => "btn btn-primary" %>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3 text-center ">
+      <%= submit_tag "Log In", :class => "btn btn-lg btn-primary btn-block" %>
+    </div>
+  </div>
   <% end %>
 </div>

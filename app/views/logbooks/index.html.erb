@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex justify-content-between align-items-center">
-    <div><h2><%= "#{@current_user.email}'s Logbooks" %></h2></div>
+    <div><h2><%= "#{@current_user.first_name} #{@current_user.last_name}'s Logbooks" %></h2></div>
     <div><%= button_to 'New', new_logbook_path, :method => 'get',  :class => "btn btn-primary btn-sm" %></div>
   </div>
 

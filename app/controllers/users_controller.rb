@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_for_login, :only => [:show, :by_month, :by_aircraft, :by_type] 
   # User signup page
   def new
     # stores user shape for form helper
@@ -20,6 +21,23 @@ class UsersController < ApplicationController
       #back to create page with errors displayed
       render :new
     end
+  end
+
+  def show
+    @flights = @current_user.flights
+
+  end
+
+  def by_month
+    @flights = @current_user.flights
+  end
+
+  def by_aircraft
+    @flights = @current_user.flights
+  end
+
+  def by_type
+    @flights = @current_user.flights
   end
 
   private
