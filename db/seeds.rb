@@ -12,9 +12,9 @@ l4=Logbook.create :name => 'Meat Bomb', aviation_type: 'Skydiving'
 puts "#{ Logbook.count } logbooks"
 
 rand(100..400).times do
-  vfr_time = rand(0.1..5.9)
-  ifr_time = rand(0.1..5.9)
-  aircraft_list = ['Cirrus', 'PC-9', 'Cherokee', 'Citabria', 'Archer', 'Bonanza', 'Airtruk', 'Seminole', 'DA-42', 'Duchess']
+  vfr_time = rand(0.1..5.9).round(1)
+  ifr_time = rand(0.1..5.9).round(1)
+  aircraft_list = ['Cub', 'PC-9', 'Cherokee', 'Citabria', 'Archer', 'Bonanza', 'Airtruk', 'Seminole', 'DA-42', 'Duchess']
   aircraft_selector = rand(0..9)
   multi_status = false unless aircraft_selector >= 7
   f = Flight.create(
@@ -32,8 +32,8 @@ rand(100..400).times do
 end
 
 rand(100..400).times do
-  vfr_time = rand(0.1..5.9)
-  ifr_time = rand(0.1..5.9)
+  vfr_time = rand(0.1..5.9).round(1)
+  ifr_time = rand(0.1..5.9).round(1)
   aircraft_list = ['Cirrus', 'Jantar', 'JS-1', 'Ventus', 'Arcus', 'Junior', 'Duo-Discus', 'Janus', 'DG-1000', 'ASK-21']
   aircraft_selector = rand(0..9)
   launch_type_list = ["Aerotow", "Winch"]
@@ -52,8 +52,8 @@ rand(100..400).times do
 end
 
 rand(100..400).times do
-  vfr_time = rand(0.1..5.9)
-  ifr_time = rand(0.1..5.9)
+  vfr_time = rand(0.1..5.9).round(1)
+  ifr_time = rand(0.1..5.9).round(1)
   aircraft_list = ['Alpha 6', 'Koyot 3', 'Ikuma', 'Hook 5', 'Ascent 4', 'Sigma 11', 'Omega X-Alps 3', 'Pi 3',]
   launch_type_list = ["Aerotow", "Winch", "foot"]
   location_list = ["Mt Borah West", "Mt Borah East", "Mt Borah South", "Longreef", "Blackheath", "Stanwell Tops"]
