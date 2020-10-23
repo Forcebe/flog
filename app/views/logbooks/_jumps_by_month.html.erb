@@ -1,0 +1,28 @@
+<%= logbook_jumps_by_month %>
+<hr class="mb-4">
+<div class="statistics">
+  <div class="row">
+    <div class="col-md-3">
+      <h4><%= "#{@logbook.name} Stats" %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-plane-departure"></i>   &nbsp; Number of Jumps</h6>
+      </div>
+      <h4 class="text-center"><%= @flights.count %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-stopwatch"></i> &nbsp; Total Freefall Time</h6>
+      </div>
+      <h4 class="text-center"><%= "#{(@flights.sum(:freefall) / 60).round(1)} minutes" %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-cloud"></i> &nbsp; Average launch altitude</h6>
+      </div>
+      <h4 class="text-center"><%= "#{(@flights.sum(:launch_altitude) / @flights.count).round(1)} ft" %></h4>
+    </div>
+  </div>
+</div>
+<hr class="mb-4">

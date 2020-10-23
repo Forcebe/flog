@@ -1,0 +1,28 @@
+<%= logbook_jumps_by_canopy %>
+<hr class="mb-4">
+<div class="statistics">
+  <div class="row">
+    <div class="col-md-3">
+      <h4><%= "#{@logbook.name} Stats" %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-plane-departure"></i>   &nbsp; Canopy with Most Jumps</h6>
+      </div>
+      <h4 class="text-center"><%= @logbook.most_flown_aircraft.first %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-stopwatch"></i> &nbsp; Canopy with most freefall time</h6>
+      </div>
+      <h4 class="text-center"><%= @logbook.most_freefall_canopy.first%></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-cloud"></i> &nbsp; Total freefall time with <%= @logbook.most_freefall_canopy.first %>  </h6>
+      </div>
+      <h4 class="text-center"><%= "#{@logbook.most_freefall_canopy[1] / 60} minutes" %></h4>
+    </div>
+  </div>
+</div>
+<hr class="mb-4">

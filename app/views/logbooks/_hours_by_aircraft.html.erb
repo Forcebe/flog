@@ -1,0 +1,28 @@
+<%= logbook_hours_by_aircraft %>
+<hr class="mb-4">
+<div class="statistics">
+  <div class="row">
+    <div class="col-md-3">
+      <h4><%= "#{@logbook.name} Stats" %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-plane-departure"></i>   &nbsp; Most Flights</h6>
+      </div>
+      <h4 class="text-center"><%= @logbook.most_flown_aircraft.first %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-stopwatch"></i> &nbsp; Most flight time</h6>
+      </div>
+      <h4 class="text-center"><%=  @logbook.most_hours_aircraft.first %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-hourglass-half"></i> &nbsp; Time in <%= @logbook.most_hours_aircraft.first %></h6>
+      </div>
+      <h4 class="text-center"><%= "#{@logbook.most_hours_aircraft[1].round(1)} hours" %></h4>
+    </div>
+  </div>
+</div>
+<hr class="mb-4">

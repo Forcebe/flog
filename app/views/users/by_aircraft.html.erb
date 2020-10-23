@@ -18,7 +18,7 @@
     </nav>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h2><%= "##{@current_user.first_name} #{@current_user.last_name}'s Statistics" %></h2>
+        <h2><%= "#{@current_user.first_name} #{@current_user.last_name}'s Statistics" %></h2>
       </div>
       <%= render :partial => 'hours_by_aircraft' %>
     </main>

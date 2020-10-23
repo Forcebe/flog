@@ -8,14 +8,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Include FontAwesome -->
     <script src="https://kit.fontawesome.com/5986bf02eb.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <header>
+      <!-- Create a dark navbar at the top of the page -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <%# if logged in, show link to log out page  %>
+      <!-- If a user is logged in, show appropriate links -->
         <% if @current_user.present? %>
+        <!-- Logo links to logbooks index. First so logo always displays -->
         <%= link_to image_tag( "f-log_logo.png", :height => 30, :alt => '', ), logbooks_path %>
         <!-- Bootstrap collapse for smaller screens -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,8 +28,10 @@
             <!-- Navbar links -->
             <ul class="navbar-nav">
               <li class= <%= 'active' if current_page?(logbooks_path) %>>
+                <!-- Link to logbooks index. Will show active -->
                 <%= link_to 'My Logbooks', logbooks_path, :class => "nav-item nav-link" %>
               </li>
+              <!-- Dropdown links to statistics pages. Will show active -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Statistics
@@ -40,11 +45,12 @@
                 </div>
               </li>
               <li class="nav-item">
+                <!-- Link to logout.  -->
                 <%= link_to "Log out of #{@current_user.first_name} #{@current_user.last_name}", login_path, :method => 'delete', :class => "nav-item nav-link" %>
               </li>
             </ul>
           </div>
-          <%# if logged out show links to create acc/log in%>
+          <!-- if logged out show links to create acc/log in -->
         <% else %>
         <%= link_to image_tag( "f-log_logo.png",  :height => 30, :alt => '' ), root_path %>
         <!-- Bootstrap collapse for smaller screens -->
@@ -67,14 +73,17 @@
     </header>
 
 
-
+      <!-- No container here because it's in the views for targeted styling -->
       <%= yield %>
 
 
     <footer class="footer">
       <div class="container">
+        <!-- splits footer items to either side of the footer -->
         <div class="text-muted d-flex justify-content-between align-items-center">
+          <!-- byline -->
           <div>Nick Mather for General Assembly Australia SEI #38, October 2020.</div>
+          <!-- social links -->
           <div>
             <a href="https://twitter.com/Forcebe_" target="_blank" class="text-secondary">
               <i class="fa fa-twitter"></i>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_for_login, :only => [:show, :by_month, :by_aircraft, :by_type] 
+  before_action :check_for_login, :only => [:show, :by_month, :by_aircraft, :by_type]
   # User signup page
   def new
     # stores user shape for form helper
@@ -23,11 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @flights = @current_user.flights
-
-  end
-
+  #For statistics views, gets info to be displayed for current user
   def by_month
     @flights = @current_user.flights
   end

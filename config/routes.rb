@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #homepage route
   root :to => "pages#home"
   #new user routes
-  resources :users, :only => [:new, :create, :show]
+  resources :users, :only => [:new, :create,]
 
   #routes for logbooks & flights as a nested resource
   resources :logbooks do
@@ -31,7 +31,9 @@ Rails.application.routes.draw do
       get 'user_hours_by_aircraft'
       get 'user_flights_by_type'
       get 'logbook_hours_by_month'
-      get 'logbook_hous_by_aircraft'
+      get 'logbook_jumps_by_month'
+      get 'logbook_hours_by_aircraft'
+      get 'logbook_jumps_by_canopy'
     end
   end
 end

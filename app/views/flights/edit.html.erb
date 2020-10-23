@@ -1,6 +1,7 @@
+<!-- Container for formatting -->
 <div class="container">
   <h2>Edit Flight</h2>
-
+  <!-- Displays the correct form for the aviation type of the logbook -->
   <% if @logbook.aviation_type == 'General Aviation' %>
     <%= render partial: "general_aviation_form" %>
   <% elsif @logbook.aviation_type == 'Gliding' %>

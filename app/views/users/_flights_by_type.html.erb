@@ -1,0 +1,28 @@
+<%= user_flights_by_type %>
+<hr class="mb-4">
+<div class="statistics">
+  <div class="row">
+    <div class="col-md-3">
+      <h4>Aviation Experience</h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-plane-departure"></i>   &nbsp; Number of Flights</h6>
+      </div>
+      <h4 class="text-center"><%= @flights.count %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-stopwatch"></i> &nbsp; Total Flight Time</h6>
+      </div>
+      <h4 class="text-center"><%= "#{@flights.sum(:flight_time).round(1)} hours" %></h4>
+    </div>
+    <div class="col-md-3">
+      <div class="heading">
+        <h6 class="text-center"><i class="fas fa-hourglass-half"></i> &nbsp; Average flight Length</h6>
+      </div>
+      <h4 class="text-center"><%= "#{(@flights.sum(:flight_time) / @flights.count).round(1)} hours" %></h4>
+    </div>
+  </div>
+</div>
+<hr class="mb-4">
